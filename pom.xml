@@ -63,7 +63,7 @@
                         <name>org.jooq.util.DefaultGenerator</name>
                         <database>
                             <name>org.jooq.util.mysql.MySQLDatabase</name>
-                            <includes>jenv_candidates|jenv_users|jenv_candidate_versions</includes>
+                            <includes>users|books|user_readings</includes>
                             <excludes></excludes>
                             <inputSchema>jenv_dev</inputSchema>
                         </database>
