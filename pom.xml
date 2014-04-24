@@ -53,7 +53,7 @@
                 <configuration>
                     <jdbc>
                         <driver>com.mysql.jdbc.Driver</driver>
-                        <url>jdbc:mysql://192.168.12.10:3306/jenv_dev?useUnicode=true&amp;characterEncoding=UTF-8</url>
+                        <url>jdbc:mysql://192.168.10.10:3306/jooq?useUnicode=true&amp;characterEncoding=UTF-8</url>
                         <user>root</user>
                         <password></password>
                     </jdbc>
