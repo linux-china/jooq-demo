@@ -9,7 +9,7 @@ import org.unitils.spring.annotation.SpringApplicationContext;
  *
  * @author linux_china
  */
-@SpringApplicationContext({"/appContext-jooq-unit.xml"})
+@SpringApplicationContext({"/appContext-jooq.xml", "/appContext-jooq-unit.xml"})
 @ConfigureProfile("unit")
 public abstract class JooqBaseTestCase extends UnitilsJUnit4 {
 }
