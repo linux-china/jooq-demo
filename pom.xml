@@ -68,7 +68,7 @@
                             <inputSchema>jooq</inputSchema>
                         </database>
                         <target>
-                            <packageName>org.mvnsearch.jooq.generated</packageName>
+                            <packageName>org.mvnsearch.jooq.db</packageName>
                             <directory>src/main/java</directory>
                         </target>
                     </generator>
