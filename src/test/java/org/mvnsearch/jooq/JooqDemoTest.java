@@ -7,7 +7,7 @@ import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.junit.Test;
 
-import static org.mvnsearch.jooq.generated.Tables.*;
+import static org.mvnsearch.jooq.db.Tables.*;
 
 import org.unitils.database.annotations.TestDataSource;
 import org.unitils.dbunit.annotation.DataSet;
@@ -19,7 +19,7 @@ import javax.sql.DataSource;
  *
  * @author linux_china
  */
-@DataSet({"/database/dataset/users.xml"})
+@DataSet({"/database/dataset/languages.xml"})
 public class JooqDemoTest extends JooqBaseTestCase {
     @TestDataSource
     private DataSource dataSource;
@@ -27,9 +27,9 @@ public class JooqDemoTest extends JooqBaseTestCase {
     @Test
     public void testSpike() {
         DSLContext dsl = DSL.using(dataSource, SQLDialect.MYSQL);
-        Result<Record> result = dsl.select().from(USERS).fetch();
+        Result<Record> result = dsl.select().from(LANGUAGE).fetch();
         for (Record r : result) {
-            Integer id = r.getValue(USERS.ID);
+            Integer id = r.getValue(LANGUAGE.ID);
             System.out.println(id);
         }
     }
