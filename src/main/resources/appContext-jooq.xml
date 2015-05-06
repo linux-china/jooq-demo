@@ -7,10 +7,10 @@
 
     <bean id="jooqDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="url"
-                  value="jdbc:mysql://192.168.10.10:3306/jooq?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"/>
+                  value="jdbc:mysql://dev.mvnsearch.net:3306/jooq?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="username" value="root"/>
-        <property name="password" value=""/>
+        <property name="password" value="123456"/>
     </bean>
 
     <!-- Configure the DSL object, optionally overriding jOOQ Exceptions with Spring Exceptions -->
