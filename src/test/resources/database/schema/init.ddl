@@ -1,13 +1,13 @@
 DROP TABLE IF EXISTS language;
 CREATE TABLE language (
-  id          INT     NOT NULL PRIMARY KEY,
+  id          INT     NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cd          CHAR(2) NOT NULL,
   description VARCHAR(50)
 );
 
 DROP TABLE IF EXISTS author;
 CREATE TABLE author (
-  id            INT         NOT NULL PRIMARY KEY,
+  id            INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
   first_name    VARCHAR(50),
   last_name     VARCHAR(50) NOT NULL,
   gender        VARCHAR(16),
@@ -18,7 +18,7 @@ CREATE TABLE author (
 
 DROP TABLE IF EXISTS book;
 CREATE TABLE book (
-  id           INT          NOT NULL PRIMARY KEY,
+  id           INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
   author_id    INT          NOT NULL,
   title        VARCHAR(400) NOT NULL,
   published_in INT          NOT NULL,
