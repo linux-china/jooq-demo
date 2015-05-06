@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns="jooq" targetNamespace="jooq">
+	<xsd:element name="book_store" type="book_store__type" />
+	<xsd:element name="author" type="author__type" />
+	<xsd:element name="book" type="book__type" />
+	<xsd:element name="dbmaintain_scripts" type="dbmaintain_scripts__type" />
+	<xsd:element name="language" type="language__type" />
+	<xsd:element name="book_to_book_store" type="book_to_book_store__type" />
+	<xsd:complexType name="book_store__type">
+		<xsd:attribute name="name" use="optional" />
+	</xsd:complexType>
+	<xsd:complexType name="author__type">
+		<xsd:attribute name="date_of_birth" use="optional" />
+		<xsd:attribute name="last_name" use="optional" />
+		<xsd:attribute name="id" use="optional" />
+		<xsd:attribute name="distinguished" use="optional" />
+		<xsd:attribute name="first_name" use="optional" />
+		<xsd:attribute name="year_of_birth" use="optional" />
+	</xsd:complexType>
+	<xsd:complexType name="book__type">
+		<xsd:attribute name="id" use="optional" />
+		<xsd:attribute name="language_id" use="optional" />
+		<xsd:attribute name="author_id" use="optional" />
+		<xsd:attribute name="title" use="optional" />
+		<xsd:attribute name="published_in" use="optional" />
+	</xsd:complexType>
+	<xsd:complexType name="dbmaintain_scripts__type">
+		<xsd:attribute name="file_name" use="optional" />
+		<xsd:attribute name="executed_at" use="optional" />
+		<xsd:attribute name="checksum" use="optional" />
+		<xsd:attribute name="file_last_modified_at" use="optional" />
+		<xsd:attribute name="version" use="optional" />
+		<xsd:attribute name="succeeded" use="optional" />
+	</xsd:complexType>
+	<xsd:complexType name="language__type">
+		<xsd:attribute name="cd" use="optional" />
+		<xsd:attribute name="description" use="optional" />
+		<xsd:attribute name="id" use="optional" />
+	</xsd:complexType>
+	<xsd:complexType name="book_to_book_store__type">
+		<xsd:attribute name="name" use="optional" />
+		<xsd:attribute name="book_id" use="optional" />
+		<xsd:attribute name="stock" use="optional" />
+	</xsd:complexType>
+</xsd:schema>
