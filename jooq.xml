@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.3.0.xsd">
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.6.0.xsd">
     <!-- Configure the database connection here -->
     <jdbc>
         <driver>com.mysql.jdbc.Driver</driver>
-        <url>jdbc:mysql://192.168.10.10:3306/jooq</url>
+        <url>jdbc:mysql://dev.mvnsearch.net:3306/jooq</url>
         <user>root</user>
-        <password></password>
+        <password>123456</password>
     </jdbc>
 
     <generator>
@@ -25,18 +25,18 @@
             <!-- All elements that are generated from your schema
                  (A Java regular expression. Use the pipe to separate several expressions)
                  Watch out for case-sensitivity. Depending on your database, this might be important! -->
-            <includes>users|books|user_readings</includes>
+            <!--<includes>users|books|user_readings</includes>-->
+            <includes>.*</includes>
 
             <!-- All elements that are excluded from your schema
                  (A Java regular expression. Use the pipe to separate several expressions).
                  Excludes match before includes -->
-            <excludes></excludes>
+            <excludes>dbmaintain_scripts</excludes>
         </database>
 
         <target>
             <!-- The destination package of your generated classes (within the destination directory) -->
             <packageName>org.mvnsearch.jooq.db</packageName>
-
             <!-- The destination directory of your generated classes -->
             <directory>src/main/java</directory>
         </target>
