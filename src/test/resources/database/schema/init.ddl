@@ -1,34 +1,31 @@
--- CREATE DATABASE IF NOT  EXISTS jooq_dev CHARACTER SET utf8 COLLATE utf8_general_ci;
-
-DROP TABLE IF EXISTS users;
-CREATE TABLE users (
-  id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  nick       VARCHAR(32),
-  passwd     VARCHAR(64),
-  email      VARCHAR(64),
-  status     INT,
-  created_at DATETIME
+CREATE TABLE language (
+  id          INT     NOT NULL PRIMARY KEY,
+  cd          CHAR(2) NOT NULL,
+  description VARCHAR(50)
+);
+CREATE TABLE author (
+  id            INT         NOT NULL PRIMARY KEY,
+  first_name    VARCHAR(50),
+  last_name     VARCHAR(50) NOT NULL,
+  date_of_birth DATE,
+  year_of_birth INT,
+  distinguished INT
+);
+CREATE TABLE book (
+  id           INT          NOT NULL PRIMARY KEY,
+  author_id    INT          NOT NULL,
+  title        VARCHAR(400) NOT NULL,
+  published_in INT          NOT NULL,
+  language_id  INT          NOT NULL
 );
 
-DROP TABLE IF EXISTS books;
-CREATE TABLE books (
-  id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  isbn       VARCHAR(32),
-  name       VARCHAR(256),
-  author     VARCHAR(16),
-  page_count INT,
-  price      DOUBLE,
-  status     INT,
-  created_at DATETIME
+CREATE TABLE book_store (
+  name VARCHAR(400) NOT NULL UNIQUE
 );
 
-DROP TABLE IF EXISTS user_readings;
-CREATE TABLE user_readings (
-  id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  user_id    INT,
-  book_id    INT,
-  status     INT,
-  created_at DATETIME,
-  updated_at DATETIME
+CREATE TABLE book_to_book_store (
+  name    VARCHAR(400) NOT NULL,
+  book_id INTEGER      NOT NULL,
+  stock   INTEGER,
+  PRIMARY KEY (name, book_id)
 );
-
