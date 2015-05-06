@@ -10,6 +10,7 @@
 		<xsd:attribute name="name" use="optional" />
 	</xsd:complexType>
 	<xsd:complexType name="author__type">
+		<xsd:attribute name="gender" use="optional" />
 		<xsd:attribute name="date_of_birth" use="optional" />
 		<xsd:attribute name="last_name" use="optional" />
 		<xsd:attribute name="id" use="optional" />
