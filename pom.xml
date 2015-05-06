@@ -12,9 +12,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jooq.version>3.3.1</jooq.version>
-        <unitils.version>3.4</unitils.version>
-        <spring.version>3.2.8.RELEASE</spring.version>
+        <jooq.version>3.6.1</jooq.version>
+        <unitils.version>3.4.2</unitils.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
     </properties>
 
     <build>
@@ -53,18 +53,18 @@
                 <configuration>
                     <jdbc>
                         <driver>com.mysql.jdbc.Driver</driver>
-                        <url>jdbc:mysql://192.168.10.10:3306/jooq?useUnicode=true&amp;characterEncoding=UTF-8</url>
+                        <url>jdbc:mysql://dev.mvnsearch.net:3306/jooq?useUnicode=true&amp;characterEncoding=UTF-8</url>
                         <user>root</user>
-                        <password></password>
+                        <password>123456</password>
                     </jdbc>
 
                     <!-- Generator parameters -->
                     <generator>
-                        <name>org.jooq.util.DefaultGenerator</name>
+                        <name>org.jooq.util.JavaGenerator</name>
                         <database>
                             <name>org.jooq.util.mysql.MySQLDatabase</name>
-                            <includes>users|books|user_readings</includes>
-                            <excludes></excludes>
+                            <includes>.*</includes>
+                            <excludes>dbmaintain_scripts</excludes>
                             <inputSchema>jooq</inputSchema>
                         </database>
                         <target>
@@ -76,12 +76,14 @@
             </plugin>
         </plugins>
     </build>
+
     <dependencies>
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
             <version>1.0.2</version>
         </dependency>
+        <!--jooq-->
         <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>
@@ -100,12 +102,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.30</version>
+            <version>5.1.35</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
-            <version>2.0</version>
+            <version>2.1</version>
         </dependency>
         <!--spring-->
         <dependency>
@@ -148,7 +150,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -160,13 +162,7 @@
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymock</artifactId>
-            <version>3.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.easymock</groupId>
-            <artifactId>easymockclassextension</artifactId>
-            <version>3.1</version>
+            <version>3.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -214,7 +210,7 @@
         <dependency>
             <groupId>org.dbunit</groupId>
             <artifactId>dbunit</artifactId>
-            <version>2.3.0</version>
+            <version>2.5.0</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
