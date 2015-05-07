@@ -7,16 +7,17 @@ import org.jooq.Result;
 import static org.mvnsearch.jooq.db.Tables.*;
 
 import org.junit.Test;
+import org.mvnsearch.DatabaseBaseTestCase;
 import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.spring.annotation.SpringBean;
 
 /**
- * dsl context test
+ * jooq dsl context test
  *
  * @author linux_china
  */
 @DataSet({"/database/dataset/languages.xml"})
-public class DslTest extends JooqBaseTestCase {
+public class JooqDslTest extends DatabaseBaseTestCase {
     @SpringBean("dsl")
     private DSLContext dsl;
 
