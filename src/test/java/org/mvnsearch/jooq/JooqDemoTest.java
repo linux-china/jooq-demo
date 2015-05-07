@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import static org.mvnsearch.jooq.db.Tables.*;
 
+import org.mvnsearch.DatabaseBaseTestCase;
 import org.unitils.database.annotations.TestDataSource;
 import org.unitils.dbunit.annotation.DataSet;
 
@@ -20,7 +21,7 @@ import javax.sql.DataSource;
  * @author linux_china
  */
 @DataSet({"/database/dataset/languages.xml"})
-public class JooqDemoTest extends JooqBaseTestCase {
+public class JooqDemoTest extends DatabaseBaseTestCase {
     @TestDataSource
     private DataSource dataSource;
 
