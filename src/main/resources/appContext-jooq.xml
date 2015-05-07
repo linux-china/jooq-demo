@@ -5,12 +5,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="jooqDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="url"
                   value="jdbc:mysql://dev.mvnsearch.net:3306/jooq?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 
     <!-- Configure the DSL object, optionally overriding jOOQ Exceptions with Spring Exceptions -->
@@ -22,12 +26,11 @@
                 </property>
                 <property name="connectionProvider">
                     <bean class="org.jooq.impl.DataSourceConnectionProvider">
-                        <constructor-arg ref="jooqDataSource"/>
+                        <constructor-arg ref="dataSource"/>
                     </bean>
                 </property>
             </bean>
         </constructor-arg>
     </bean>
-
 
 </beans>
