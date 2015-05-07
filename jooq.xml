@@ -13,6 +13,10 @@
              Defaults to org.jooq.util.DefaultGenerator -->
         <name>org.jooq.util.JavaGenerator</name>
 
+        <strategy>
+            <name>org.jooq.util.example.JVMArgsGeneratorStrategy</name>
+        </strategy>
+
         <database>
             <!-- The database type. The format here is:
                  org.util.[database].[database]Database -->
@@ -36,7 +40,7 @@
 
         <target>
             <!-- The destination package of your generated classes (within the destination directory) -->
-            <packageName>org.mvnsearch.jooq.db</packageName>
+            <packageName>org.mvnsearch.infrastructure.jooq</packageName>
             <!-- The destination directory of your generated classes -->
             <directory>src/main/java</directory>
         </target>
