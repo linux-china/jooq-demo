@@ -7,7 +7,7 @@ import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.junit.Test;
 
-import static org.mvnsearch.jooq.db.Tables.*;
+import static org.mvnsearch.infrastructure.jooq.Tables.*;
 
 import org.mvnsearch.DatabaseBaseTestCase;
 import org.unitils.database.annotations.TestDataSource;
