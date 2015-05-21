@@ -29,4 +29,9 @@ public class JooqDslTest extends DatabaseBaseTestCase {
             System.out.println(id);
         }
     }
+
+    @Test
+    public void testUpdate() throws Exception {
+        dsl.update(LANGUAGE).set(LANGUAGE.DESCRIPTION, "Chinese").where(LANGUAGE.ID.eq(1));
+    }
 }
