@@ -4,7 +4,7 @@ import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
 
-import static org.mvnsearch.jooq.db.Tables.*;
+import static org.mvnsearch.infrastructure.jooq.Tables.*;
 
 import org.junit.Test;
 import org.mvnsearch.DatabaseBaseTestCase;
