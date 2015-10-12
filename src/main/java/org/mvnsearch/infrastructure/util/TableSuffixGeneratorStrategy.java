@@ -3,6 +3,7 @@ package org.mvnsearch.infrastructure.util;
 
 import org.jooq.util.DefaultGeneratorStrategy;
 import org.jooq.util.Definition;
+import org.jooq.util.SchemaDefinition;
 import org.jooq.util.TableDefinition;
 
 /**
@@ -17,6 +18,9 @@ public class TableSuffixGeneratorStrategy extends DefaultGeneratorStrategy {
         String name = super.getJavaClassName(definition, mode);
         if (definition instanceof TableDefinition && !name.endsWith("Record")) {
             name = name + "Table";
+        }
+        if (definition instanceof SchemaDefinition) {
+            name = name + "Database";
         }
         return name;
     }
