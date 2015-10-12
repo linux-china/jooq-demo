@@ -8,6 +8,7 @@ import static org.mvnsearch.infrastructure.jooq.Tables.*;
 
 import org.junit.Test;
 import org.mvnsearch.DatabaseBaseTestCase;
+import org.mvnsearch.infrastructure.jooq.tables.records.LanguageRecord;
 import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.spring.annotation.SpringBean;
 
@@ -23,10 +24,9 @@ public class JooqDslTest extends DatabaseBaseTestCase {
 
     @Test
     public void testSelect() throws Exception {
-        Result<Record> records = dsl.select().from(LANGUAGE).fetch();
-        for (Record record : records) {
-            Integer id = record.getValue(LANGUAGE.ID);
-            System.out.println(id);
+        Result<LanguageRecord> records = dsl.selectFrom(LANGUAGE).fetch();
+        for (LanguageRecord record : records) {
+            System.out.println(record.getId());
         }
     }
 
