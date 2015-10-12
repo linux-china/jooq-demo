@@ -14,7 +14,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.TableImpl;
-import org.mvnsearch.infrastructure.jooq.Jooq;
+import org.mvnsearch.infrastructure.jooq.JooqDatabase;
 import org.mvnsearch.infrastructure.jooq.Keys;
 import org.mvnsearch.infrastructure.jooq.tables.records.BookStoreRecord;
 
@@ -32,7 +32,7 @@ import org.mvnsearch.infrastructure.jooq.tables.records.BookStoreRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BookStoreTable extends TableImpl<BookStoreRecord> {
 
-	private static final long serialVersionUID = 1605970335;
+	private static final long serialVersionUID = -1328247105;
 
 	/**
 	 * The reference instance of <code>jooq.book_store</code>
@@ -71,7 +71,7 @@ public class BookStoreTable extends TableImpl<BookStoreRecord> {
 	}
 
 	private BookStoreTable(String alias, Table<BookStoreRecord> aliased, Field<?>[] parameters) {
-		super(alias, Jooq.JOOQ, aliased, parameters, "");
+		super(alias, JooqDatabase.JOOQ, aliased, parameters, "");
 	}
 
 	/**
