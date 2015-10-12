@@ -12,9 +12,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jooq.version>3.6.1</jooq.version>
+        <jooq.version>3.7.0</jooq.version>
         <unitils.version>3.4.2</unitils.version>
-        <spring.version>4.1.6.RELEASE</spring.version>
+        <spring.version>4.2.1.RELEASE</spring.version>
         <slf4j.version>1.7.12</slf4j.version>
     </properties>
 
@@ -63,21 +63,14 @@
             <artifactId>commons-dbcp2</artifactId>
             <version>2.1</version>
         </dependency>
-        <!--spring-->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+        <!--spring framework-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <!--commons-->
         <dependency>
@@ -195,4 +188,16 @@
             </exclusions>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
