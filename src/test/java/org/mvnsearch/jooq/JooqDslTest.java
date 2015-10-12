@@ -19,19 +19,17 @@ import org.unitils.spring.annotation.SpringBean;
  */
 @DataSet({"/database/dataset/languages.xml"})
 public class JooqDslTest extends DatabaseBaseTestCase {
-    @SpringBean("dsl")
-    private DSLContext dsl;
+    @SpringBean("jooq")
+    private DSLContext jooq;
 
     @Test
     public void testSelect() throws Exception {
-        Result<LanguageRecord> records = dsl.selectFrom(LANGUAGE).fetch();
-        for (LanguageRecord record : records) {
-            System.out.println(record.getId());
-        }
+        Result<LanguageRecord> records = jooq.selectFrom(LANGUAGE).fetch();
+        records.stream().forEach(languageRecord -> System.out.println(languageRecord.getId()));
     }
 
     @Test
     public void testUpdate() throws Exception {
-        dsl.update(LANGUAGE).set(LANGUAGE.DESCRIPTION, "Chinese").where(LANGUAGE.ID.eq(1));
+        jooq.update(LANGUAGE).set(LANGUAGE.DESCRIPTION, "Chinese").where(LANGUAGE.ID.eq(1));
     }
 }
