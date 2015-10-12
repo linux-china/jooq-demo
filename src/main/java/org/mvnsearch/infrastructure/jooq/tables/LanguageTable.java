@@ -15,7 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.TableImpl;
-import org.mvnsearch.infrastructure.jooq.JooqDatabase;
+import org.mvnsearch.infrastructure.jooq.JooqSchema;
 import org.mvnsearch.infrastructure.jooq.Keys;
 import org.mvnsearch.infrastructure.jooq.tables.records.LanguageRecord;
 
@@ -33,7 +33,7 @@ import org.mvnsearch.infrastructure.jooq.tables.records.LanguageRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class LanguageTable extends TableImpl<LanguageRecord> {
 
-	private static final long serialVersionUID = -2110202025;
+	private static final long serialVersionUID = 1259023255;
 
 	/**
 	 * The reference instance of <code>jooq.language</code>
@@ -82,7 +82,7 @@ public class LanguageTable extends TableImpl<LanguageRecord> {
 	}
 
 	private LanguageTable(String alias, Table<LanguageRecord> aliased, Field<?>[] parameters) {
-		super(alias, JooqDatabase.JOOQ, aliased, parameters, "");
+		super(alias, JooqSchema.JOOQ, aliased, parameters, "");
 	}
 
 	/**

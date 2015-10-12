@@ -16,7 +16,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.TableImpl;
-import org.mvnsearch.infrastructure.jooq.JooqDatabase;
+import org.mvnsearch.infrastructure.jooq.JooqSchema;
 import org.mvnsearch.infrastructure.jooq.Keys;
 import org.mvnsearch.infrastructure.jooq.tables.records.AuthorRecord;
 
@@ -34,7 +34,7 @@ import org.mvnsearch.infrastructure.jooq.tables.records.AuthorRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AuthorTable extends TableImpl<AuthorRecord> {
 
-	private static final long serialVersionUID = -999334256;
+	private static final long serialVersionUID = 24396484;
 
 	/**
 	 * The reference instance of <code>jooq.author</code>
@@ -103,7 +103,7 @@ public class AuthorTable extends TableImpl<AuthorRecord> {
 	}
 
 	private AuthorTable(String alias, Table<AuthorRecord> aliased, Field<?>[] parameters) {
-		super(alias, JooqDatabase.JOOQ, aliased, parameters, "");
+		super(alias, JooqSchema.JOOQ, aliased, parameters, "");
 	}
 
 	/**
