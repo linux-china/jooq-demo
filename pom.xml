@@ -263,7 +263,7 @@
                             <generator>
                                 <name>org.jooq.util.JavaGenerator</name>
                                 <strategy>
-                                    <name>org.jooq.util.example.JVMArgsGeneratorStrategy</name>
+                                    <name>org.mvnsearch.infrastructure.util.TableSuffixGeneratorStrategy</name>
                                 </strategy>
                                 <database>
                                     <name>org.jooq.util.mysql.MySQLDatabase</name>
