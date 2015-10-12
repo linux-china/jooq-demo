@@ -20,7 +20,7 @@ public class TableSuffixGeneratorStrategy extends DefaultGeneratorStrategy {
             name = name + "Table";
         }
         if (definition instanceof SchemaDefinition) {
-            name = name + "Database";
+            name = name + "Schema";
         }
         return name;
     }
