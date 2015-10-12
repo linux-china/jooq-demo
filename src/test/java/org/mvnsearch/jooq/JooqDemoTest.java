@@ -29,9 +29,6 @@ public class JooqDemoTest extends DatabaseBaseTestCase {
     public void testSpike() {
         DSLContext dsl = DSL.using(dataSource, SQLDialect.MYSQL);
         Result<Record> result = dsl.select().from(LANGUAGE).fetch();
-        for (Record r : result) {
-            Integer id = r.getValue(LANGUAGE.ID);
-            System.out.println(id);
-        }
+        result.stream().forEach(record -> System.out.println(record.getValue(LANGUAGE.ID)));
     }
 }
