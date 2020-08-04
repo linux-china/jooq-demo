@@ -1,0 +1,46 @@
+<!ELEMENT dataset (
+    author*,
+    book*,
+    book_store*,
+    book_to_book_store*,
+    language*)>
+
+<!ELEMENT author EMPTY>
+<!ATTLIST author
+    id CDATA #REQUIRED
+    first_name CDATA #IMPLIED
+    last_name CDATA #REQUIRED
+    gender CDATA #IMPLIED
+    date_of_birth CDATA #IMPLIED
+    year_of_birth CDATA #IMPLIED
+    distinguished CDATA #IMPLIED
+>
+
+<!ELEMENT book EMPTY>
+<!ATTLIST book
+    id CDATA #REQUIRED
+    author_id CDATA #REQUIRED
+    title CDATA #REQUIRED
+    published_in CDATA #REQUIRED
+    language_id CDATA #REQUIRED
+>
+
+<!ELEMENT book_store EMPTY>
+<!ATTLIST book_store
+    name CDATA #REQUIRED
+>
+
+<!ELEMENT book_to_book_store EMPTY>
+<!ATTLIST book_to_book_store
+    name CDATA #REQUIRED
+    book_id CDATA #REQUIRED
+    stock CDATA #IMPLIED
+>
+
+<!ELEMENT language EMPTY>
+<!ATTLIST language
+    id CDATA #REQUIRED
+    cd CDATA #REQUIRED
+    description CDATA #IMPLIED
+>
+
