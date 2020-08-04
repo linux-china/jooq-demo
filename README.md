@@ -1,13 +1,12 @@
 JOOQ Demo
 =============================
-Demo project for JOOQ
+Spring Boot app with jOOQ
 
 
-### Tools
+### References
 
-* use jenv to install jdk 1.8
-* Docker Compose
+* jOOQ: https://www.jooq.org/
+* Spring Boot Starter jOOQ: https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/html/spring-boot-features.html#boot-features-jooq
+* Spring Boot Support for jOOQ: https://www.baeldung.com/spring-boot-support-for-jooq
+* jOOX: https://github.com/jOOQ/jOOX
 
-
-### JOOQ maven plugin
-   Please reference org.mvnsearch.infrastructure.util.TableSuffixGeneratorStrategy for custom name. 
