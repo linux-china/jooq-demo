@@ -1,16 +1,14 @@
 package org.mvnsearch.jooq;
 
+import com.github.database.rider.core.api.dataset.DataSet;
 import org.jooq.DSLContext;
-import org.jooq.Record;
 import org.jooq.Result;
-
-import static org.mvnsearch.infrastructure.jooq.Tables.*;
-
-import org.junit.Test;
-import org.mvnsearch.DatabaseBaseTestCase;
+import org.junit.jupiter.api.Test;
+import org.mvnsearch.JooqBaseTest;
 import org.mvnsearch.infrastructure.jooq.tables.records.LanguageRecord;
-import org.unitils.dbunit.annotation.DataSet;
-import org.unitils.spring.annotation.SpringBean;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import static org.mvnsearch.infrastructure.jooq.Tables.LANGUAGE;
 
 /**
  * jooq dsl context test
@@ -18,8 +16,8 @@ import org.unitils.spring.annotation.SpringBean;
  * @author linux_china
  */
 @DataSet({"/database/dataset/languages.xml"})
-public class JooqDslTest extends DatabaseBaseTestCase {
-    @SpringBean("jooq")
+public class JooqDslTest extends JooqBaseTest {
+    @Autowired
     private DSLContext jooq;
 
     @Test

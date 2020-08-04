@@ -1,20 +1,21 @@
 package org.mvnsearch.spring;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.mvnsearch.JooqBaseTest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.unitils.spring.annotation.SpringBean;
 
 /**
  * jdbc template test
  *
  * @author linux_china
  */
-public class JdbcTemplateTest {
-    @SpringBean("jdbcTemplate")
+public class JdbcTemplateTest extends JooqBaseTest {
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Test
     public void testSelect() throws Exception {
-
+        System.out.println("good");
     }
 }

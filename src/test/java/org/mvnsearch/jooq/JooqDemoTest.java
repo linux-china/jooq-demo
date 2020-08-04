@@ -1,19 +1,14 @@
 package org.mvnsearch.jooq;
 
-import org.jooq.DSLContext;
+import com.github.database.rider.core.api.dataset.DataSet;
 import org.jooq.Record;
 import org.jooq.Result;
-import org.jooq.SQLDialect;
-import org.jooq.impl.DSL;
-import org.junit.Test;
+import org.jooq.impl.DefaultDSLContext;
+import org.junit.jupiter.api.Test;
+import org.mvnsearch.JooqBaseTest;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.mvnsearch.infrastructure.jooq.Tables.*;
-
-import org.mvnsearch.DatabaseBaseTestCase;
-import org.unitils.database.annotations.TestDataSource;
-import org.unitils.dbunit.annotation.DataSet;
-
-import javax.sql.DataSource;
+import static org.mvnsearch.infrastructure.jooq.Tables.LANGUAGE;
 
 /**
  * jooq demo test
@@ -21,14 +16,13 @@ import javax.sql.DataSource;
  * @author linux_china
  */
 @DataSet({"/database/dataset/languages.xml"})
-public class JooqDemoTest extends DatabaseBaseTestCase {
-    @TestDataSource
-    private DataSource dataSource;
+public class JooqDemoTest extends JooqBaseTest {
+    @Autowired
+    private DefaultDSLContext jooq;
 
     @Test
     public void testSpike() {
-        DSLContext dsl = DSL.using(dataSource, SQLDialect.MYSQL);
-        Result<Record> result = dsl.select().from(LANGUAGE).fetch();
-        result.stream().forEach(record -> System.out.println(record.getValue(LANGUAGE.ID)));
+        Result<Record> result = jooq.select().from(LANGUAGE).fetch();
+        result.forEach(record -> System.out.println(record.getValue(LANGUAGE.ID)));
     }
 }

@@ -1,8 +1,8 @@
 package org.mvnsearch.jdbc;
 
-import org.junit.Test;
-import org.mvnsearch.DatabaseBaseTestCase;
-import org.unitils.spring.annotation.SpringBean;
+import org.junit.jupiter.api.Test;
+import org.mvnsearch.JooqBaseTest;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -14,8 +14,8 @@ import java.sql.Statement;
  *
  * @author linux_china
  */
-public class JdbcClientTest extends DatabaseBaseTestCase {
-    @SpringBean("dataSource")
+public class JdbcClientTest extends JooqBaseTest {
+    @Autowired
     private DataSource dataSource;
 
     @Test
