@@ -1,10 +1,10 @@
 package org.mvnsearch.infrastructure.util;
 
 
-import org.jooq.util.DefaultGeneratorStrategy;
-import org.jooq.util.Definition;
-import org.jooq.util.SchemaDefinition;
-import org.jooq.util.TableDefinition;
+import org.jooq.codegen.DefaultGeneratorStrategy;
+import org.jooq.meta.Definition;
+import org.jooq.meta.SchemaDefinition;
+import org.jooq.meta.TableDefinition;
 
 /**
  * table suffix generator
