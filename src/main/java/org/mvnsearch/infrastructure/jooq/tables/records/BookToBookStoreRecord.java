@@ -18,7 +18,7 @@ import org.mvnsearch.infrastructure.jooq.tables.BookToBookStoreTable;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BookToBookStoreRecord extends UpdatableRecordImpl<BookToBookStoreRecord> implements Record3<String, Integer, Integer> {
 
-    private static final long serialVersionUID = 1278061719;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Setter for <code>jooq.book_to_book_store.name</code>.
@@ -173,8 +173,8 @@ public class BookToBookStoreRecord extends UpdatableRecordImpl<BookToBookStoreRe
     public BookToBookStoreRecord(String name, Integer bookId, Integer stock) {
         super(BookToBookStoreTable.BOOK_TO_BOOK_STORE);
 
-        set(0, name);
-        set(1, bookId);
-        set(2, stock);
+        setName(name);
+        setBookId(bookId);
+        setStock(stock);
     }
 }

@@ -20,7 +20,7 @@ import org.mvnsearch.infrastructure.jooq.tables.AuthorTable;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AuthorRecord extends UpdatableRecordImpl<AuthorRecord> implements Record7<Integer, String, String, String, LocalDate, Integer, Integer> {
 
-    private static final long serialVersionUID = -1276116808;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Setter for <code>jooq.author.id</code>.
@@ -319,12 +319,12 @@ public class AuthorRecord extends UpdatableRecordImpl<AuthorRecord> implements R
     public AuthorRecord(Integer id, String firstName, String lastName, String gender, LocalDate dateOfBirth, Integer yearOfBirth, Integer distinguished) {
         super(AuthorTable.AUTHOR);
 
-        set(0, id);
-        set(1, firstName);
-        set(2, lastName);
-        set(3, gender);
-        set(4, dateOfBirth);
-        set(5, yearOfBirth);
-        set(6, distinguished);
+        setId(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setGender(gender);
+        setDateOfBirth(dateOfBirth);
+        setYearOfBirth(yearOfBirth);
+        setDistinguished(distinguished);
     }
 }

@@ -4,9 +4,6 @@
 package org.mvnsearch.infrastructure.jooq.tables;
 
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Identity;
@@ -19,6 +16,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 import org.mvnsearch.infrastructure.jooq.JooqSchema;
 import org.mvnsearch.infrastructure.jooq.Keys;
@@ -31,7 +29,7 @@ import org.mvnsearch.infrastructure.jooq.tables.records.LanguageRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class LanguageTable extends TableImpl<LanguageRecord> {
 
-    private static final long serialVersionUID = 640158674;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>jooq.language</code>
@@ -49,23 +47,24 @@ public class LanguageTable extends TableImpl<LanguageRecord> {
     /**
      * The column <code>jooq.language.id</code>.
      */
-    public final TableField<LanguageRecord, Integer> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<LanguageRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>jooq.language.cd</code>.
      */
-    public final TableField<LanguageRecord, String> CD = createField(DSL.name("cd"), org.jooq.impl.SQLDataType.CHAR(2).nullable(false), this, "");
+    public final TableField<LanguageRecord, String> CD = createField(DSL.name("cd"), SQLDataType.CHAR(2).nullable(false), this, "");
 
     /**
      * The column <code>jooq.language.description</code>.
      */
-    public final TableField<LanguageRecord, String> DESCRIPTION = createField(DSL.name("description"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
+    public final TableField<LanguageRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(50), this, "");
 
-    /**
-     * Create a <code>jooq.language</code> table reference
-     */
-    public LanguageTable() {
-        this(DSL.name("language"), null);
+    private LanguageTable(Name alias, Table<LanguageRecord> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private LanguageTable(Name alias, Table<LanguageRecord> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -82,12 +81,11 @@ public class LanguageTable extends TableImpl<LanguageRecord> {
         this(alias, LANGUAGE);
     }
 
-    private LanguageTable(Name alias, Table<LanguageRecord> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private LanguageTable(Name alias, Table<LanguageRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>jooq.language</code> table reference
+     */
+    public LanguageTable() {
+        this(DSL.name("language"), null);
     }
 
     public <O extends Record> LanguageTable(Table<O> child, ForeignKey<O, LanguageRecord> key) {
@@ -96,22 +94,17 @@ public class LanguageTable extends TableImpl<LanguageRecord> {
 
     @Override
     public Schema getSchema() {
-        return JooqSchema.JOOQ;
+        return aliased() ? null : JooqSchema.JOOQ;
     }
 
     @Override
     public Identity<LanguageRecord, Integer> getIdentity() {
-        return Keys.IDENTITY_LANGUAGE;
+        return (Identity<LanguageRecord, Integer>) super.getIdentity();
     }
 
     @Override
     public UniqueKey<LanguageRecord> getPrimaryKey() {
         return Keys.KEY_LANGUAGE_PRIMARY;
-    }
-
-    @Override
-    public List<UniqueKey<LanguageRecord>> getKeys() {
-        return Arrays.<UniqueKey<LanguageRecord>>asList(Keys.KEY_LANGUAGE_PRIMARY);
     }
 
     @Override

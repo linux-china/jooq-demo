@@ -12,7 +12,7 @@ import org.mvnsearch.infrastructure.jooq.tables.LanguageTable;
 
 
 /**
- * Convenience access to all tables in jooq
+ * Convenience access to all tables in jooq.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {

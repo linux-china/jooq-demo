@@ -17,7 +17,7 @@ import org.mvnsearch.infrastructure.jooq.tables.BookStoreTable;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BookStoreRecord extends TableRecordImpl<BookStoreRecord> implements Record1<String> {
 
-    private static final long serialVersionUID = 778349988;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Setter for <code>jooq.book_store.name</code>.
@@ -91,6 +91,6 @@ public class BookStoreRecord extends TableRecordImpl<BookStoreRecord> implements
     public BookStoreRecord(String name) {
         super(BookStoreTable.BOOK_STORE);
 
-        set(0, name);
+        setName(name);
     }
 }

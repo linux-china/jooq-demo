@@ -23,7 +23,7 @@ import org.mvnsearch.infrastructure.jooq.tables.LanguageTable;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class JooqSchema extends SchemaImpl {
 
-    private static final long serialVersionUID = 739600606;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>jooq</code>
@@ -70,11 +70,12 @@ public class JooqSchema extends SchemaImpl {
 
     @Override
     public final List<Table<?>> getTables() {
-        return Arrays.<Table<?>>asList(
+        return Arrays.asList(
             AuthorTable.AUTHOR,
             BookTable.BOOK,
             BookStoreTable.BOOK_STORE,
             BookToBookStoreTable.BOOK_TO_BOOK_STORE,
-            LanguageTable.LANGUAGE);
+            LanguageTable.LANGUAGE
+        );
     }
 }

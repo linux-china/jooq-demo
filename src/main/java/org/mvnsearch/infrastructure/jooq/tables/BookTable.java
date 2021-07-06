@@ -4,9 +4,6 @@
 package org.mvnsearch.infrastructure.jooq.tables;
 
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Identity;
@@ -19,6 +16,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 import org.mvnsearch.infrastructure.jooq.JooqSchema;
 import org.mvnsearch.infrastructure.jooq.Keys;
@@ -31,7 +29,7 @@ import org.mvnsearch.infrastructure.jooq.tables.records.BookRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BookTable extends TableImpl<BookRecord> {
 
-    private static final long serialVersionUID = -791448297;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>jooq.book</code>
@@ -49,33 +47,34 @@ public class BookTable extends TableImpl<BookRecord> {
     /**
      * The column <code>jooq.book.id</code>.
      */
-    public final TableField<BookRecord, Integer> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<BookRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>jooq.book.author_id</code>.
      */
-    public final TableField<BookRecord, Integer> AUTHOR_ID = createField(DSL.name("author_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<BookRecord, Integer> AUTHOR_ID = createField(DSL.name("author_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>jooq.book.title</code>.
      */
-    public final TableField<BookRecord, String> TITLE = createField(DSL.name("title"), org.jooq.impl.SQLDataType.VARCHAR(400).nullable(false), this, "");
+    public final TableField<BookRecord, String> TITLE = createField(DSL.name("title"), SQLDataType.VARCHAR(400).nullable(false), this, "");
 
     /**
      * The column <code>jooq.book.published_in</code>.
      */
-    public final TableField<BookRecord, Integer> PUBLISHED_IN = createField(DSL.name("published_in"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<BookRecord, Integer> PUBLISHED_IN = createField(DSL.name("published_in"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>jooq.book.language_id</code>.
      */
-    public final TableField<BookRecord, Integer> LANGUAGE_ID = createField(DSL.name("language_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<BookRecord, Integer> LANGUAGE_ID = createField(DSL.name("language_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
-    /**
-     * Create a <code>jooq.book</code> table reference
-     */
-    public BookTable() {
-        this(DSL.name("book"), null);
+    private BookTable(Name alias, Table<BookRecord> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private BookTable(Name alias, Table<BookRecord> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -92,12 +91,11 @@ public class BookTable extends TableImpl<BookRecord> {
         this(alias, BOOK);
     }
 
-    private BookTable(Name alias, Table<BookRecord> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private BookTable(Name alias, Table<BookRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>jooq.book</code> table reference
+     */
+    public BookTable() {
+        this(DSL.name("book"), null);
     }
 
     public <O extends Record> BookTable(Table<O> child, ForeignKey<O, BookRecord> key) {
@@ -106,22 +104,17 @@ public class BookTable extends TableImpl<BookRecord> {
 
     @Override
     public Schema getSchema() {
-        return JooqSchema.JOOQ;
+        return aliased() ? null : JooqSchema.JOOQ;
     }
 
     @Override
     public Identity<BookRecord, Integer> getIdentity() {
-        return Keys.IDENTITY_BOOK;
+        return (Identity<BookRecord, Integer>) super.getIdentity();
     }
 
     @Override
     public UniqueKey<BookRecord> getPrimaryKey() {
         return Keys.KEY_BOOK_PRIMARY;
-    }
-
-    @Override
-    public List<UniqueKey<BookRecord>> getKeys() {
-        return Arrays.<UniqueKey<BookRecord>>asList(Keys.KEY_BOOK_PRIMARY);
     }
 
     @Override

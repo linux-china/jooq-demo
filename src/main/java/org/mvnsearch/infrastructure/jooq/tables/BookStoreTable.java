@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Row1;
@@ -19,8 +18,8 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.mvnsearch.infrastructure.jooq.Indexes;
 import org.mvnsearch.infrastructure.jooq.JooqSchema;
 import org.mvnsearch.infrastructure.jooq.Keys;
 import org.mvnsearch.infrastructure.jooq.tables.records.BookStoreRecord;
@@ -32,7 +31,7 @@ import org.mvnsearch.infrastructure.jooq.tables.records.BookStoreRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BookStoreTable extends TableImpl<BookStoreRecord> {
 
-    private static final long serialVersionUID = 1273811818;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>jooq.book_store</code>
@@ -50,13 +49,14 @@ public class BookStoreTable extends TableImpl<BookStoreRecord> {
     /**
      * The column <code>jooq.book_store.name</code>.
      */
-    public final TableField<BookStoreRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(400).nullable(false), this, "");
+    public final TableField<BookStoreRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(400).nullable(false), this, "");
 
-    /**
-     * Create a <code>jooq.book_store</code> table reference
-     */
-    public BookStoreTable() {
-        this(DSL.name("book_store"), null);
+    private BookStoreTable(Name alias, Table<BookStoreRecord> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private BookStoreTable(Name alias, Table<BookStoreRecord> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -73,12 +73,11 @@ public class BookStoreTable extends TableImpl<BookStoreRecord> {
         this(alias, BOOK_STORE);
     }
 
-    private BookStoreTable(Name alias, Table<BookStoreRecord> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private BookStoreTable(Name alias, Table<BookStoreRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>jooq.book_store</code> table reference
+     */
+    public BookStoreTable() {
+        this(DSL.name("book_store"), null);
     }
 
     public <O extends Record> BookStoreTable(Table<O> child, ForeignKey<O, BookStoreRecord> key) {
@@ -87,17 +86,12 @@ public class BookStoreTable extends TableImpl<BookStoreRecord> {
 
     @Override
     public Schema getSchema() {
-        return JooqSchema.JOOQ;
+        return aliased() ? null : JooqSchema.JOOQ;
     }
 
     @Override
-    public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.BOOK_STORE_NAME);
-    }
-
-    @Override
-    public List<UniqueKey<BookStoreRecord>> getKeys() {
-        return Arrays.<UniqueKey<BookStoreRecord>>asList(Keys.KEY_BOOK_STORE_NAME);
+    public List<UniqueKey<BookStoreRecord>> getUniqueKeys() {
+        return Arrays.asList(Keys.KEY_BOOK_STORE_NAME);
     }
 
     @Override

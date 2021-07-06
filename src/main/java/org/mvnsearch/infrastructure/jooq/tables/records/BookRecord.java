@@ -18,7 +18,7 @@ import org.mvnsearch.infrastructure.jooq.tables.BookTable;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BookRecord extends UpdatableRecordImpl<BookRecord> implements Record5<Integer, Integer, String, Integer, Integer> {
 
-    private static final long serialVersionUID = -1167126029;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Setter for <code>jooq.book.id</code>.
@@ -245,10 +245,10 @@ public class BookRecord extends UpdatableRecordImpl<BookRecord> implements Recor
     public BookRecord(Integer id, Integer authorId, String title, Integer publishedIn, Integer languageId) {
         super(BookTable.BOOK);
 
-        set(0, id);
-        set(1, authorId);
-        set(2, title);
-        set(3, publishedIn);
-        set(4, languageId);
+        setId(id);
+        setAuthorId(authorId);
+        setTitle(title);
+        setPublishedIn(publishedIn);
+        setLanguageId(languageId);
     }
 }

@@ -18,7 +18,7 @@ import org.mvnsearch.infrastructure.jooq.tables.LanguageTable;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class LanguageRecord extends UpdatableRecordImpl<LanguageRecord> implements Record3<Integer, String, String> {
 
-    private static final long serialVersionUID = -494557963;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Setter for <code>jooq.language.id</code>.
@@ -173,8 +173,8 @@ public class LanguageRecord extends UpdatableRecordImpl<LanguageRecord> implemen
     public LanguageRecord(Integer id, String cd, String description) {
         super(LanguageTable.LANGUAGE);
 
-        set(0, id);
-        set(1, cd);
-        set(2, description);
+        setId(id);
+        setCd(cd);
+        setDescription(description);
     }
 }

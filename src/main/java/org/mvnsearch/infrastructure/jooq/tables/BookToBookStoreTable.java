@@ -4,9 +4,6 @@
 package org.mvnsearch.infrastructure.jooq.tables;
 
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Name;
@@ -18,6 +15,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 import org.mvnsearch.infrastructure.jooq.JooqSchema;
 import org.mvnsearch.infrastructure.jooq.Keys;
@@ -30,7 +28,7 @@ import org.mvnsearch.infrastructure.jooq.tables.records.BookToBookStoreRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BookToBookStoreTable extends TableImpl<BookToBookStoreRecord> {
 
-    private static final long serialVersionUID = 268844237;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>jooq.book_to_book_store</code>
@@ -48,23 +46,24 @@ public class BookToBookStoreTable extends TableImpl<BookToBookStoreRecord> {
     /**
      * The column <code>jooq.book_to_book_store.name</code>.
      */
-    public final TableField<BookToBookStoreRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(400).nullable(false), this, "");
+    public final TableField<BookToBookStoreRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(400).nullable(false), this, "");
 
     /**
      * The column <code>jooq.book_to_book_store.book_id</code>.
      */
-    public final TableField<BookToBookStoreRecord, Integer> BOOK_ID = createField(DSL.name("book_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<BookToBookStoreRecord, Integer> BOOK_ID = createField(DSL.name("book_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>jooq.book_to_book_store.stock</code>.
      */
-    public final TableField<BookToBookStoreRecord, Integer> STOCK = createField(DSL.name("stock"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<BookToBookStoreRecord, Integer> STOCK = createField(DSL.name("stock"), SQLDataType.INTEGER, this, "");
 
-    /**
-     * Create a <code>jooq.book_to_book_store</code> table reference
-     */
-    public BookToBookStoreTable() {
-        this(DSL.name("book_to_book_store"), null);
+    private BookToBookStoreTable(Name alias, Table<BookToBookStoreRecord> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private BookToBookStoreTable(Name alias, Table<BookToBookStoreRecord> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -81,12 +80,11 @@ public class BookToBookStoreTable extends TableImpl<BookToBookStoreRecord> {
         this(alias, BOOK_TO_BOOK_STORE);
     }
 
-    private BookToBookStoreTable(Name alias, Table<BookToBookStoreRecord> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private BookToBookStoreTable(Name alias, Table<BookToBookStoreRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>jooq.book_to_book_store</code> table reference
+     */
+    public BookToBookStoreTable() {
+        this(DSL.name("book_to_book_store"), null);
     }
 
     public <O extends Record> BookToBookStoreTable(Table<O> child, ForeignKey<O, BookToBookStoreRecord> key) {
@@ -95,17 +93,12 @@ public class BookToBookStoreTable extends TableImpl<BookToBookStoreRecord> {
 
     @Override
     public Schema getSchema() {
-        return JooqSchema.JOOQ;
+        return aliased() ? null : JooqSchema.JOOQ;
     }
 
     @Override
     public UniqueKey<BookToBookStoreRecord> getPrimaryKey() {
         return Keys.KEY_BOOK_TO_BOOK_STORE_PRIMARY;
-    }
-
-    @Override
-    public List<UniqueKey<BookToBookStoreRecord>> getKeys() {
-        return Arrays.<UniqueKey<BookToBookStoreRecord>>asList(Keys.KEY_BOOK_TO_BOOK_STORE_PRIMARY);
     }
 
     @Override

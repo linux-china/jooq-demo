@@ -5,8 +5,6 @@ package org.mvnsearch.infrastructure.jooq.tables;
 
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
@@ -20,6 +18,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 import org.mvnsearch.infrastructure.jooq.JooqSchema;
 import org.mvnsearch.infrastructure.jooq.Keys;
@@ -32,7 +31,7 @@ import org.mvnsearch.infrastructure.jooq.tables.records.AuthorRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AuthorTable extends TableImpl<AuthorRecord> {
 
-    private static final long serialVersionUID = -922827287;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>jooq.author</code>
@@ -50,43 +49,44 @@ public class AuthorTable extends TableImpl<AuthorRecord> {
     /**
      * The column <code>jooq.author.id</code>.
      */
-    public final TableField<AuthorRecord, Integer> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<AuthorRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>jooq.author.first_name</code>.
      */
-    public final TableField<AuthorRecord, String> FIRST_NAME = createField(DSL.name("first_name"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
+    public final TableField<AuthorRecord, String> FIRST_NAME = createField(DSL.name("first_name"), SQLDataType.VARCHAR(50), this, "");
 
     /**
      * The column <code>jooq.author.last_name</code>.
      */
-    public final TableField<AuthorRecord, String> LAST_NAME = createField(DSL.name("last_name"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
+    public final TableField<AuthorRecord, String> LAST_NAME = createField(DSL.name("last_name"), SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
      * The column <code>jooq.author.gender</code>.
      */
-    public final TableField<AuthorRecord, String> GENDER = createField(DSL.name("gender"), org.jooq.impl.SQLDataType.VARCHAR(16), this, "");
+    public final TableField<AuthorRecord, String> GENDER = createField(DSL.name("gender"), SQLDataType.VARCHAR(16), this, "");
 
     /**
      * The column <code>jooq.author.date_of_birth</code>.
      */
-    public final TableField<AuthorRecord, LocalDate> DATE_OF_BIRTH = createField(DSL.name("date_of_birth"), org.jooq.impl.SQLDataType.LOCALDATE, this, "");
+    public final TableField<AuthorRecord, LocalDate> DATE_OF_BIRTH = createField(DSL.name("date_of_birth"), SQLDataType.LOCALDATE, this, "");
 
     /**
      * The column <code>jooq.author.year_of_birth</code>.
      */
-    public final TableField<AuthorRecord, Integer> YEAR_OF_BIRTH = createField(DSL.name("year_of_birth"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<AuthorRecord, Integer> YEAR_OF_BIRTH = createField(DSL.name("year_of_birth"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>jooq.author.distinguished</code>.
      */
-    public final TableField<AuthorRecord, Integer> DISTINGUISHED = createField(DSL.name("distinguished"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<AuthorRecord, Integer> DISTINGUISHED = createField(DSL.name("distinguished"), SQLDataType.INTEGER, this, "");
 
-    /**
-     * Create a <code>jooq.author</code> table reference
-     */
-    public AuthorTable() {
-        this(DSL.name("author"), null);
+    private AuthorTable(Name alias, Table<AuthorRecord> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private AuthorTable(Name alias, Table<AuthorRecord> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -103,12 +103,11 @@ public class AuthorTable extends TableImpl<AuthorRecord> {
         this(alias, AUTHOR);
     }
 
-    private AuthorTable(Name alias, Table<AuthorRecord> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private AuthorTable(Name alias, Table<AuthorRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>jooq.author</code> table reference
+     */
+    public AuthorTable() {
+        this(DSL.name("author"), null);
     }
 
     public <O extends Record> AuthorTable(Table<O> child, ForeignKey<O, AuthorRecord> key) {
@@ -117,22 +116,17 @@ public class AuthorTable extends TableImpl<AuthorRecord> {
 
     @Override
     public Schema getSchema() {
-        return JooqSchema.JOOQ;
+        return aliased() ? null : JooqSchema.JOOQ;
     }
 
     @Override
     public Identity<AuthorRecord, Integer> getIdentity() {
-        return Keys.IDENTITY_AUTHOR;
+        return (Identity<AuthorRecord, Integer>) super.getIdentity();
     }
 
     @Override
     public UniqueKey<AuthorRecord> getPrimaryKey() {
         return Keys.KEY_AUTHOR_PRIMARY;
-    }
-
-    @Override
-    public List<UniqueKey<AuthorRecord>> getKeys() {
-        return Arrays.<UniqueKey<AuthorRecord>>asList(Keys.KEY_AUTHOR_PRIMARY);
     }
 
     @Override
