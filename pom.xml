@@ -75,6 +75,10 @@
             <artifactId>spring-r2dbc</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-pool</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.mariadb</groupId>
             <artifactId>r2dbc-mariadb</artifactId>
             <version>1.0.1</version>
