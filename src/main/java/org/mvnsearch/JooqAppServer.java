@@ -17,11 +17,11 @@ public class JooqAppServer {
     }
 
     /**
-     * jOOQ DSLContext with R2DBC
+     * jOOQ DSLContext with R2DBC for Spring Boot 2.5.x and fixed by 2.6.0
      *
      * @return DSLContext
      */
-    @Bean
+    //@Bean
     public DSLContext jooQDSLContext() {
         ConnectionFactoryOptions options = ConnectionFactoryOptions.builder()
                 .option(ConnectionFactoryOptions.DRIVER, "mariadb")
