@@ -21,7 +21,7 @@ then the publishers will execute queries in a non-blocking fashion on an R2DBC d
     <dependency>
         <groupId>org.mariadb</groupId>
         <artifactId>r2dbc-mariadb</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.3</version>
     </dependency>
 </dependencies>
 ```
@@ -38,7 +38,7 @@ spring.r2dbc.pool.initial-size=1
 spring.r2dbc.pool.max-size=4
 ```
 
-目前该该功能还未完全实现，请关注： https://github.com/spring-projects/spring-boot/issues/26439
+目前该该功能已经在Spring Boot 2.6.0中实现，关于Spring Boot 2.5.x的解决方法请访问 https://github.com/spring-projects/spring-boot/issues/26439
 
 # References
 
