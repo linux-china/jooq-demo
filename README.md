@@ -43,7 +43,8 @@ spring.r2dbc.pool.max-size=4
 # References
 
 * jOOQ: https://www.jooq.org/
-* Spring Boot Starter jOOQ: https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/html/spring-boot-features.html#boot-features-jooq
+* Beginning jOOQ: Learn to Write Efficient and Effective Java-Based SQL Database Operations  https://learning.oreilly.com/library/view/beginning-jooq-learn/9781484274316/
+* Spring Boot Starter jOOQ: https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.sql.jooq
 * Spring Boot Support for jOOQ: https://www.baeldung.com/spring-boot-support-for-jooq
 * jOOX: https://github.com/jOOQ/jOOX
 
