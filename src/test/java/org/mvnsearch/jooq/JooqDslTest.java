@@ -23,7 +23,7 @@ public class JooqDslTest extends JooqBaseTest {
     @Test
     public void testSelect() throws Exception {
         Result<LanguageRecord> records = jooq.selectFrom(LANGUAGE).fetch();
-        records.stream().forEach(languageRecord -> System.out.println(languageRecord.getId()));
+        records.forEach(languageRecord -> System.out.println(languageRecord.getId()));
     }
 
     @Test
