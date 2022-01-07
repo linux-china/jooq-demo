@@ -15,7 +15,7 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <jooq.version>3.16.0</jooq.version>
+        <jooq.version>3.16.1</jooq.version>
         <spring-boot.version>2.6.2</spring-boot.version>
         <mysql-driver.version>8.0.25</mysql-driver.version>
         <junit5.version>5.8.2</junit5.version>
