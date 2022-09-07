@@ -49,4 +49,5 @@ spring.r2dbc.pool.max-size=4
 * jOOX: https://github.com/jOOQ/jOOX
 * JOOQ Data Abstractions Without Distraction - Devnexus 2022: https://www.youtube.com/watch?v=80xV7OPtsrA
 * jOOQ Masterclass: https://learning.oreilly.com/library/view/jooq-masterclass
+* A Brief Overview over the Most Common jOOQ Types: https://blog.jooq.org/a-brief-overview-over-the-most-common-jooq-types/
 
