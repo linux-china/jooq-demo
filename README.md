@@ -21,7 +21,7 @@ then the publishers will execute queries in a non-blocking fashion on an R2DBC d
     <dependency>
         <groupId>org.mariadb</groupId>
         <artifactId>r2dbc-mariadb</artifactId>
-        <version>1.0.3</version>
+        <version>1.1.2</version>
     </dependency>
 </dependencies>
 ```
@@ -50,4 +50,5 @@ spring.r2dbc.pool.max-size=4
 * JOOQ Data Abstractions Without Distraction - Devnexus 2022: https://www.youtube.com/watch?v=80xV7OPtsrA
 * jOOQ Masterclass: https://learning.oreilly.com/library/view/jooq-masterclass
 * A Brief Overview over the Most Common jOOQ Types: https://blog.jooq.org/a-brief-overview-over-the-most-common-jooq-types/
+* Spring Boot with jOOQ and PostgreSQL: https://boottechnologies-ci.medium.com/spring-boot-with-jooq-and-postgresql-4a86378a4e5e
 
