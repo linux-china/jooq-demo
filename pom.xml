@@ -15,11 +15,11 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <jooq.version>3.17.4</jooq.version>
-        <spring-boot.version>2.7.3</spring-boot.version>
+        <jooq.version>3.17.6</jooq.version>
+        <spring-boot.version>2.7.6</spring-boot.version>
         <mysql-driver.version>8.0.30</mysql-driver.version>
-        <junit5.version>5.9.0</junit5.version>
-        <database-rider.version>1.34.0</database-rider.version>
+        <junit5.version>5.9.1</junit5.version>
+        <database-rider.version>1.35.0</database-rider.version>
         <jdbc.url>jdbc:mysql://localhost:3306/jooq</jdbc.url>
     </properties>
 
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>23.0.0</version>
+            <version>23.1.0</version>
         </dependency>
         <!--jooq-->
         <dependency>
@@ -96,16 +96,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.github.database-rider</groupId>
