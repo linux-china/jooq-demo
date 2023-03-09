@@ -6,13 +6,17 @@ package org.mvnsearch.infrastructure.jooq.tables;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
+import org.jooq.Function1;
 import org.jooq.Name;
 import org.jooq.Record;
+import org.jooq.Records;
 import org.jooq.Row1;
 import org.jooq.Schema;
+import org.jooq.SelectField;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
@@ -104,6 +108,11 @@ public class BookStoreTable extends TableImpl<BookStoreRecord> {
         return new BookStoreTable(alias, this);
     }
 
+    @Override
+    public BookStoreTable as(Table<?> alias) {
+        return new BookStoreTable(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -120,6 +129,14 @@ public class BookStoreTable extends TableImpl<BookStoreRecord> {
         return new BookStoreTable(name, null);
     }
 
+    /**
+     * Rename this table
+     */
+    @Override
+    public BookStoreTable rename(Table<?> name) {
+        return new BookStoreTable(name.getQualifiedName(), null);
+    }
+
     // -------------------------------------------------------------------------
     // Row1 type methods
     // -------------------------------------------------------------------------
@@ -127,5 +144,20 @@ public class BookStoreTable extends TableImpl<BookStoreRecord> {
     @Override
     public Row1<String> fieldsRow() {
         return (Row1) super.fieldsRow();
+    }
+
+    /**
+     * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
+     */
+    public <U> SelectField<U> mapping(Function1<? super String, ? extends U> from) {
+        return convertFrom(Records.mapping(from));
+    }
+
+    /**
+     * Convenience mapping calling {@link SelectField#convertFrom(Class,
+     * Function)}.
+     */
+    public <U> SelectField<U> mapping(Class<U> toType, Function1<? super String, ? extends U> from) {
+        return convertFrom(toType, Records.mapping(from));
     }
 }

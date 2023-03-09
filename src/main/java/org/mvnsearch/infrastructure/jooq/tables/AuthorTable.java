@@ -5,14 +5,18 @@ package org.mvnsearch.infrastructure.jooq.tables;
 
 
 import java.time.LocalDate;
+import java.util.function.Function;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
+import org.jooq.Function7;
 import org.jooq.Identity;
 import org.jooq.Name;
 import org.jooq.Record;
+import org.jooq.Records;
 import org.jooq.Row7;
 import org.jooq.Schema;
+import org.jooq.SelectField;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
@@ -139,6 +143,11 @@ public class AuthorTable extends TableImpl<AuthorRecord> {
         return new AuthorTable(alias, this);
     }
 
+    @Override
+    public AuthorTable as(Table<?> alias) {
+        return new AuthorTable(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -155,6 +164,14 @@ public class AuthorTable extends TableImpl<AuthorRecord> {
         return new AuthorTable(name, null);
     }
 
+    /**
+     * Rename this table
+     */
+    @Override
+    public AuthorTable rename(Table<?> name) {
+        return new AuthorTable(name.getQualifiedName(), null);
+    }
+
     // -------------------------------------------------------------------------
     // Row7 type methods
     // -------------------------------------------------------------------------
@@ -162,5 +179,20 @@ public class AuthorTable extends TableImpl<AuthorRecord> {
     @Override
     public Row7<Integer, String, String, String, LocalDate, Integer, Integer> fieldsRow() {
         return (Row7) super.fieldsRow();
+    }
+
+    /**
+     * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
+     */
+    public <U> SelectField<U> mapping(Function7<? super Integer, ? super String, ? super String, ? super String, ? super LocalDate, ? super Integer, ? super Integer, ? extends U> from) {
+        return convertFrom(Records.mapping(from));
+    }
+
+    /**
+     * Convenience mapping calling {@link SelectField#convertFrom(Class,
+     * Function)}.
+     */
+    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super Integer, ? super String, ? super String, ? super String, ? super LocalDate, ? super Integer, ? super Integer, ? extends U> from) {
+        return convertFrom(toType, Records.mapping(from));
     }
 }

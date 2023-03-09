@@ -4,13 +4,18 @@
 package org.mvnsearch.infrastructure.jooq.tables;
 
 
+import java.util.function.Function;
+
 import org.jooq.Field;
 import org.jooq.ForeignKey;
+import org.jooq.Function5;
 import org.jooq.Identity;
 import org.jooq.Name;
 import org.jooq.Record;
+import org.jooq.Records;
 import org.jooq.Row5;
 import org.jooq.Schema;
+import org.jooq.SelectField;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
@@ -127,6 +132,11 @@ public class BookTable extends TableImpl<BookRecord> {
         return new BookTable(alias, this);
     }
 
+    @Override
+    public BookTable as(Table<?> alias) {
+        return new BookTable(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -143,6 +153,14 @@ public class BookTable extends TableImpl<BookRecord> {
         return new BookTable(name, null);
     }
 
+    /**
+     * Rename this table
+     */
+    @Override
+    public BookTable rename(Table<?> name) {
+        return new BookTable(name.getQualifiedName(), null);
+    }
+
     // -------------------------------------------------------------------------
     // Row5 type methods
     // -------------------------------------------------------------------------
@@ -150,5 +168,20 @@ public class BookTable extends TableImpl<BookRecord> {
     @Override
     public Row5<Integer, Integer, String, Integer, Integer> fieldsRow() {
         return (Row5) super.fieldsRow();
+    }
+
+    /**
+     * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
+     */
+    public <U> SelectField<U> mapping(Function5<? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
+        return convertFrom(Records.mapping(from));
+    }
+
+    /**
+     * Convenience mapping calling {@link SelectField#convertFrom(Class,
+     * Function)}.
+     */
+    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
+        return convertFrom(toType, Records.mapping(from));
     }
 }
