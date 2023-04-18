@@ -7,7 +7,7 @@ Spring Boot app with jOOQ
 
 Please refer https://www.jooq.org/doc/3.15/manual/sql-execution/fetching/reactive-fetching/ for details.
 
-If you provide jOOQ with an `io.r2dbc.spi.Connection` or `io.r2dbc.spi.ConnectionFactory`,  
+If you provide jOOQ with an `io.r2dbc.spi.Connection` or `io.r2dbc.spi.ConnectionFactory`,
 then the publishers will execute queries in a non-blocking fashion on an R2DBC driver.
 
 对于Spring Boot应用来说，你只需要添加以下依赖：
@@ -51,4 +51,5 @@ spring.r2dbc.pool.max-size=4
 * jOOQ Masterclass: https://learning.oreilly.com/library/view/jooq-masterclass
 * A Brief Overview over the Most Common jOOQ Types: https://blog.jooq.org/a-brief-overview-over-the-most-common-jooq-types/
 * Spring Boot with jOOQ and PostgreSQL: https://boottechnologies-ci.medium.com/spring-boot-with-jooq-and-postgresql-4a86378a4e5e
+* jooq-meta-postgres-flyway: jOOQ PostgreSQL DDL database with Flyway migrations - https://github.com/sabomichal/jooq-meta-postgres-flyway
 
