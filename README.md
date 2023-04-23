@@ -28,7 +28,7 @@ then the publishers will execute queries in a non-blocking fashion on an R2DBC d
 
 然后在application.properties中添加对应的R2DBC配置，如下：
 
-```
+```properties
 # database r2dbc
 spring.r2dbc.url=r2dbc:mariadb://127.0.0.1:3306/jooq
 spring.r2dbc.username=root
@@ -52,4 +52,5 @@ spring.r2dbc.pool.max-size=4
 * A Brief Overview over the Most Common jOOQ Types: https://blog.jooq.org/a-brief-overview-over-the-most-common-jooq-types/
 * Spring Boot with jOOQ and PostgreSQL: https://boottechnologies-ci.medium.com/spring-boot-with-jooq-and-postgresql-4a86378a4e5e
 * jooq-meta-postgres-flyway: jOOQ PostgreSQL DDL database with Flyway migrations - https://github.com/sabomichal/jooq-meta-postgres-flyway
+* jOOQ Transactions with Kotlin Context Receivers: https://www.youtube.com/watch?v=GLYL2bkNPjM
 
