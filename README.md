@@ -54,4 +54,5 @@ spring.r2dbc.pool.max-size=4
 * jooq-meta-postgres-flyway: jOOQ PostgreSQL DDL database with Flyway migrations - https://github.com/sabomichal/jooq-meta-postgres-flyway
 * jOOQ Transactions with Kotlin Context Receivers: https://www.youtube.com/watch?v=GLYL2bkNPjM
 * The Sakila Database: https://www.jooq.org/sakila
+* Working with jOOQ and Flyway using Testcontainers: https://testcontainers.com/guides/working-with-jooq-flyway-using-testcontainers/
 
