@@ -24,7 +24,7 @@ import org.mvnsearch.infrastructure.jooq.tables.records.LanguageRecord;
  * A class modelling foreign key relationships and constraints of tables in
  * jooq.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Keys {
 
     // -------------------------------------------------------------------------

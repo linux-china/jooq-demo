@@ -14,7 +14,7 @@ import org.mvnsearch.infrastructure.jooq.tables.LanguageTable;
 /**
  * Convenience access to all tables in jooq.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Tables {
 
     /**
