@@ -18,8 +18,8 @@
         <jooq.version>3.18.4</jooq.version>
         <spring-boot.version>3.1.0</spring-boot.version>
         <mysql-driver.version>8.0.33</mysql-driver.version>
-        <junit5.version>5.9.3</junit5.version>
-        <database-rider.version>1.37.1</database-rider.version>
+        <junit5.version>5.10.1</junit5.version>
+        <database-rider.version>1.39.0</database-rider.version>
         <jdbc.url>jdbc:mysql://localhost:3306/jooq</jdbc.url>
     </properties>
 
