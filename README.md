@@ -21,7 +21,7 @@ then the publishers will execute queries in a non-blocking fashion on an R2DBC d
     <dependency>
         <groupId>org.mariadb</groupId>
         <artifactId>r2dbc-mariadb</artifactId>
-        <version>1.1.2</version>
+        <version>1.3.0</version>
     </dependency>
 </dependencies>
 ```
@@ -55,4 +55,5 @@ spring.r2dbc.pool.max-size=4
 * jOOQ Transactions with Kotlin Context Receivers: https://www.youtube.com/watch?v=GLYL2bkNPjM
 * The Sakila Database: https://www.jooq.org/sakila
 * Working with jOOQ and Flyway using Testcontainers: https://testcontainers.com/guides/working-with-jooq-flyway-using-testcontainers/
+* jOOQ Spring Integration: https://github.com/martinellich/jooq-spring
 
