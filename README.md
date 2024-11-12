@@ -57,4 +57,6 @@ spring.r2dbc.pool.max-size=4
 * Working with jOOQ and Flyway using Testcontainers: https://testcontainers.com/guides/working-with-jooq-flyway-using-testcontainers/
 * jOOQ Spring Integration: https://github.com/martinellich/jooq-spring
 * Fetching Data From One-to-One, One-to-Many, and Many-to-Many Relationships With jOOQ: https://dzone.com/articles/fetching-data-from-one-to-one-one-to-many-and-many
+* jOOQ Masterclass: https://learning.oreilly.com/library/view/-/9781800566897/
+* Beginning jOOQ: Learn to Write Efficient and Effective Java-Based SQL Database Operations: https://learning.oreilly.com/library/view/-/9781484274316/
 
