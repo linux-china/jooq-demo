@@ -56,4 +56,5 @@ spring.r2dbc.pool.max-size=4
 * The Sakila Database: https://www.jooq.org/sakila
 * Working with jOOQ and Flyway using Testcontainers: https://testcontainers.com/guides/working-with-jooq-flyway-using-testcontainers/
 * jOOQ Spring Integration: https://github.com/martinellich/jooq-spring
+* Fetching Data From One-to-One, One-to-Many, and Many-to-Many Relationships With jOOQ: https://dzone.com/articles/fetching-data-from-one-to-one-one-to-many-and-many
 
