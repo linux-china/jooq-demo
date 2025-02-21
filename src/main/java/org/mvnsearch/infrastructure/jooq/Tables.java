@@ -4,11 +4,11 @@
 package org.mvnsearch.infrastructure.jooq;
 
 
-import org.mvnsearch.infrastructure.jooq.tables.AuthorTable;
-import org.mvnsearch.infrastructure.jooq.tables.BookStoreTable;
-import org.mvnsearch.infrastructure.jooq.tables.BookTable;
-import org.mvnsearch.infrastructure.jooq.tables.BookToBookStoreTable;
-import org.mvnsearch.infrastructure.jooq.tables.LanguageTable;
+import org.mvnsearch.infrastructure.jooq.tables.Author;
+import org.mvnsearch.infrastructure.jooq.tables.Book;
+import org.mvnsearch.infrastructure.jooq.tables.BookStore;
+import org.mvnsearch.infrastructure.jooq.tables.BookToBookStore;
+import org.mvnsearch.infrastructure.jooq.tables.Language;
 
 
 /**
@@ -20,25 +20,25 @@ public class Tables {
     /**
      * The table <code>jooq.author</code>.
      */
-    public static final AuthorTable AUTHOR = AuthorTable.AUTHOR;
+    public static final Author AUTHOR = Author.AUTHOR;
 
     /**
      * The table <code>jooq.book</code>.
      */
-    public static final BookTable BOOK = BookTable.BOOK;
+    public static final Book BOOK = Book.BOOK;
 
     /**
      * The table <code>jooq.book_store</code>.
      */
-    public static final BookStoreTable BOOK_STORE = BookStoreTable.BOOK_STORE;
+    public static final BookStore BOOK_STORE = BookStore.BOOK_STORE;
 
     /**
      * The table <code>jooq.book_to_book_store</code>.
      */
-    public static final BookToBookStoreTable BOOK_TO_BOOK_STORE = BookToBookStoreTable.BOOK_TO_BOOK_STORE;
+    public static final BookToBookStore BOOK_TO_BOOK_STORE = BookToBookStore.BOOK_TO_BOOK_STORE;
 
     /**
      * The table <code>jooq.language</code>.
      */
-    public static final LanguageTable LANGUAGE = LanguageTable.LANGUAGE;
+    public static final Language LANGUAGE = Language.LANGUAGE;
 }

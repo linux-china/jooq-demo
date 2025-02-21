@@ -28,7 +28,7 @@ public class DefaultCatalog extends CatalogImpl {
     /**
      * The schema <code>jooq</code>.
      */
-    public final JooqSchema JOOQ = JooqSchema.JOOQ;
+    public final Jooq JOOQ = Jooq.JOOQ;
 
     /**
      * No further instances allowed
@@ -40,15 +40,15 @@ public class DefaultCatalog extends CatalogImpl {
     @Override
     public final List<Schema> getSchemas() {
         return Arrays.asList(
-            JooqSchema.JOOQ
+            Jooq.JOOQ
         );
     }
 
     /**
-     * A reference to the 3.19 minor release of the code generator. If this
+     * A reference to the 3.20 minor release of the code generator. If this
      * doesn't compile, it's because the runtime library uses an older minor
-     * release, namely: 3.19. You can turn off the generation of this reference
+     * release, namely: 3.20. You can turn off the generation of this reference
      * by specifying /configuration/generator/generate/jooqVersionReference
      */
-    private static final String REQUIRE_RUNTIME_JOOQ_VERSION = Constants.VERSION_3_19;
+    private static final String REQUIRE_RUNTIME_JOOQ_VERSION = Constants.VERSION_3_20;
 }
