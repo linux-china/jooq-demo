@@ -63,4 +63,5 @@ spring.r2dbc.pool.max-size=4
 * A Brief Overview over the Most Common jOOQ Types: https://blog.jooq.org/a-brief-overview-over-the-most-common-jooq-types/
 * jOOQ Masterclass: https://learning.oreilly.com/library/view/jooq-masterclass/9781800566897/
 * testcontainers-jooq-codegen-maven-plugin: https://github.com/testcontainers/testcontainers-jooq-codegen-maven-plugin
+* Fetching Data From One-to-One, One-to-Many, and Many-to-Many Relationships With jOOQ: https://mydeveloperplanet.com/2024/11/06/fetching-data-from-one-to-one-one-to-many-and-many-to-many-relationships-with-jooq/
 
