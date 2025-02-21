@@ -1,20 +1,20 @@
 DROP TABLE IF EXISTS language;
 CREATE TABLE language (
   id          INT     NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cd          CHAR(2) NOT NULL,
+  cd          CHAR(2) NOT NULL comment 'language code',
   description VARCHAR(50)
 );
 
 DROP TABLE IF EXISTS author;
 CREATE TABLE author (
   id            INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  first_name    VARCHAR(50),
+  first_name    VARCHAR(50) comment 'First name of the author',
   last_name     VARCHAR(50) NOT NULL,
   gender        VARCHAR(16),
   date_of_birth DATE,
   year_of_birth INT,
   distinguished INT
-);
+) comment 'author of book';
 
 DROP TABLE IF EXISTS book;
 CREATE TABLE book (
