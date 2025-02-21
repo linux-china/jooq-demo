@@ -1,5 +1,4 @@
 jooq_stubs:
-   mvn clean compile
    mvn -P generate generate-sources
 
 shell:
