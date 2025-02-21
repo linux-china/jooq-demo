@@ -183,33 +183,7 @@
               </dependency>
             </dependencies>
             <configuration>
-              <jdbc>
-                <driver>com.mysql.jdbc.Driver</driver>
-                <url>${jdbc.url}</url>
-                <user>root</user>
-                <password>123456</password>
-              </jdbc>
-              <generator>
-                <generate>
-                  <nullableAnnotation>true</nullableAnnotation>
-                  <!-- The springDao flag enables the generation of @Transactional annotations on a generated, Spring-specific DAO -->
-                  <springAnnotations>true</springAnnotations>
-                  <springDao>true</springDao>
-                  <jpaAnnotations>true</jpaAnnotations>
-                  <jpaVersion>3.1</jpaVersion>
-                </generate>
-                <name>org.jooq.codegen.JavaGenerator</name>
-                <database>
-                  <name>org.jooq.meta.mysql.MySQLDatabase</name>
-                  <includes>.*</includes>
-                  <excludes>dbmaintain_scripts</excludes>
-                  <inputSchema>jooq</inputSchema>
-                </database>
-                <target>
-                  <packageName>org.mvnsearch.infrastructure.jooq</packageName>
-                  <directory>${basedir}/src/main/java</directory>
-                </target>
-              </generator>
+              <configurationFile>jooq-config.xml</configurationFile>
             </configuration>
           </plugin>
         </plugins>
