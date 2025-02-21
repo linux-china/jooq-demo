@@ -61,4 +61,6 @@ spring.r2dbc.pool.max-size=4
 * Beginning jOOQ: Learn to Write Efficient and Effective Java-Based SQL Database Operations: https://learning.oreilly.com/library/view/-/9781484274316/
 * Commercial only features: https://www.jooq.org/doc/latest/manual/reference/commercial-only-features/
 * A Brief Overview over the Most Common jOOQ Types: https://blog.jooq.org/a-brief-overview-over-the-most-common-jooq-types/
+* jOOQ Masterclass: https://learning.oreilly.com/library/view/jooq-masterclass/9781800566897/
+* testcontainers-jooq-codegen-maven-plugin: https://github.com/testcontainers/testcontainers-jooq-codegen-maven-plugin
 
