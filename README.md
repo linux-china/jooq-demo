@@ -59,4 +59,6 @@ spring.r2dbc.pool.max-size=4
 * Fetching Data From One-to-One, One-to-Many, and Many-to-Many Relationships With jOOQ: https://dzone.com/articles/fetching-data-from-one-to-one-one-to-many-and-many
 * jOOQ Masterclass: https://learning.oreilly.com/library/view/-/9781800566897/
 * Beginning jOOQ: Learn to Write Efficient and Effective Java-Based SQL Database Operations: https://learning.oreilly.com/library/view/-/9781484274316/
+* Commercial only features: https://www.jooq.org/doc/latest/manual/reference/commercial-only-features/
+* A Brief Overview over the Most Common jOOQ Types: https://blog.jooq.org/a-brief-overview-over-the-most-common-jooq-types/
 
