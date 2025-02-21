@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.20.0.xsd">
+  <jdbc>
+    <driver>com.mysql.cj.jdbc.Driver</driver>
+    <url>jdbc:mysql://localhost:3306/jooq</url>
+    <user>root</user>
+    <password>123456</password>
+  </jdbc>
+  <generator>
+    <generate>
+      <nullableAnnotation>true</nullableAnnotation>
+      <!-- The springDao flag enables the generation of @Transactional annotations on a generated, Spring-specific DAO -->
+      <springAnnotations>true</springAnnotations>
+      <springDao>true</springDao>
+      <jpaAnnotations>true</jpaAnnotations>
+      <jpaVersion>2.2</jpaVersion>
+    </generate>
+    <name>org.jooq.codegen.JavaGenerator</name>
+    <database>
+      <name>org.jooq.meta.mysql.MySQLDatabase</name>
+      <includes>.*</includes>
+      <excludes>dbmaintain_scripts</excludes>
+      <inputSchema>jooq</inputSchema>
+    </database>
+    <target>
+      <packageName>org.mvnsearch.infrastructure.jooq</packageName>
+      <directory>src/main/java</directory>
+    </target>
+  </generator>
+</configuration>
