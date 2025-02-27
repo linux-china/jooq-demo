@@ -18,7 +18,7 @@
     <jooq.version>3.20.1</jooq.version>
     <jooq-spring.version>0.4.0</jooq-spring.version>
     <mysql-connector-j.version>9.1.0</mysql-connector-j.version>
-    <spring-boot.version>3.4.2</spring-boot.version>
+    <spring-boot.version>3.4.3</spring-boot.version>
     <junit5.version>5.12.0</junit5.version>
     <database-rider.version>1.44.0</database-rider.version>
     <jdbc.url>jdbc:mysql://localhost:13306/jooq</jdbc.url>
@@ -81,6 +81,11 @@
       <groupId>ch.martinelli.oss</groupId>
       <artifactId>jooq-spring</artifactId>
       <version>${jooq-spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jooq-jpa-extensions</artifactId>
+      <version>${jooq.version}</version>
     </dependency>
     <!-- r2dbc -->
     <dependency>
