@@ -2,6 +2,15 @@ JOOQ Demo
 =============================
 Spring Boot app with jOOQ
 
+# jOOQ Concepts
+
+A Brief Overview over the Most Common jOOQ Types: https://blog.jooq.org/a-brief-overview-over-the-most-common-jooq-types/
+
+### jOOQ query types
+
+- DDL(Query): CREATE, ALTER, DROP, RENAME, and similar
+- DML(Query): INSERT, UPDATE, DELETE, and MERGE, among others
+- DQL(ResultQuery): SELECT queries
 
 # Reactive Fetching
 
@@ -64,4 +73,5 @@ spring.r2dbc.pool.max-size=4
 * jOOQ Masterclass: https://learning.oreilly.com/library/view/jooq-masterclass/9781800566897/
 * testcontainers-jooq-codegen-maven-plugin: https://github.com/testcontainers/testcontainers-jooq-codegen-maven-plugin
 * Fetching Data From One-to-One, One-to-Many, and Many-to-Many Relationships With jOOQ: https://mydeveloperplanet.com/2024/11/06/fetching-data-from-one-to-one-one-to-many-and-many-to-many-relationships-with-jooq/
+* How to fetch multiple to-many relationships with jOOQ MULTISET: https://vladmihalcea.com/fetch-multiple-to-many-jooq-multiset/
 
