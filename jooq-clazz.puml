@@ -75,7 +75,7 @@ interface Table extends QueryPart {
 }
 
 ' A record essentially combines a list of columns
-interface Record extends Fields {
+interface Record extends Fields, Formattable {
    Row valuesRow();
    T get(field)
    T into(table)
@@ -84,6 +84,12 @@ interface Record extends Fields {
 ' A row value expression.
 interface Row extends Fields {
 
+}
+
+' data format, such as JSON, CSV, XML etc.
+interface Formattable {
+   String formatCSV();
+   String formatJSON();
 }
 
 Record -> Row : valuesRow()
