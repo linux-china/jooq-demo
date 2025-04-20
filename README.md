@@ -12,6 +12,32 @@ A Brief Overview over the Most Common jOOQ Types: https://blog.jooq.org/a-brief-
 - DML(Query): INSERT, UPDATE, DELETE, and MERGE, among others
 - DQL(ResultQuery): SELECT queries
 
+### Convert
+
+- Casting
+- coercing:
+- collating
+
+# jOOQ命名规范
+
+
+### Java
+
+- Class names are in PascalCase
+- Member names are in camelCase
+- Constants are in SNAKE_CASE
+
+### SQL
+
+A Guide to SQL Naming Conventions: https://blog.jooq.org/a-guide-to-sql-naming-conventions/
+
+### 注意实现
+
+- 列名：不要使用关键，诸如`type`, `schema`, `metadata`，这个会和Python SQLModel冲突，可以考虑为`ctype`等
+- 数据库表名：不要使用`_record`后缀，和jOOQ命名有冲突。
+
+
+
 # Reactive Fetching
 
 Please refer https://www.jooq.org/doc/3.15/manual/sql-execution/fetching/reactive-fetching/ for details.
@@ -74,4 +100,5 @@ spring.r2dbc.pool.max-size=4
 * testcontainers-jooq-codegen-maven-plugin: https://github.com/testcontainers/testcontainers-jooq-codegen-maven-plugin
 * Fetching Data From One-to-One, One-to-Many, and Many-to-Many Relationships With jOOQ: https://mydeveloperplanet.com/2024/11/06/fetching-data-from-one-to-one-one-to-many-and-many-to-many-relationships-with-jooq/
 * How to fetch multiple to-many relationships with jOOQ MULTISET: https://vladmihalcea.com/fetch-multiple-to-many-jooq-multiset/
+* A Guide to SQL Naming Conventions: https://blog.jooq.org/a-guide-to-sql-naming-conventions/https://blog.jooq.org/a-guide-to-sql-naming-conventions/
 
