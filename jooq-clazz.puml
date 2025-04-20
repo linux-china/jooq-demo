@@ -1,0 +1,104 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Configuration {
+   DSLContext dsl();
+   ConnectionProvider connectionProvider();
+   SQLDialect dialect();
+   Settings settings();
+   ExecuteListenerProvider[] executeListenerProviders();
+   RecordMapperProvider recordMapperProvider();
+}
+
+interface Scope
+
+interface DSLContext extends Scope {
+   int execute();
+   ResultQuery resultQuery();
+}
+
+interface ConnectionProvider {
+   Connection acquire();
+   release(connection)
+}
+
+Configuration -> DSLContext : dsl()
+Configuration --> ConnectionProvider : connectionProvider()
+
+
+interface QueryPart {
+}
+
+' any SQL statement
+interface Statement extends QueryPart {
+}
+
+' Any query
+interface Query extends Statement {
+   int execute()
+}
+
+'  select query
+interface ResultQuery extends Query {
+   Result<R> fetch()
+}
+
+ResultQuery --> Record
+
+' query result
+interface Result extends List, Fields {
+   T getValue( index,field)
+}
+
+interface Fields {
+  Field[] fields();
+}
+
+' A SELECT statement
+interface Select extends ResultQuery {
+
+}
+
+' column expression
+interface Field extends QueryPart {
+
+}
+
+' A condition or predicate.
+interface Condition<Boolean> extends Field<Boolean> {
+}
+
+' A table
+interface Table extends QueryPart {
+
+}
+
+' A record essentially combines a list of columns
+interface Record extends Fields {
+   Row valuesRow();
+}
+
+' A row value expression.
+interface Row extends Fields {
+
+}
+
+Record -> Row : valuesRow()
+
+DSLContext ---> Query : execute()
+DSLContext ---> ResultQuery : resultQuery()
+
+' TableRecord
+interface TableRecord extends Record
+
+class Book extends Table {
+   Class<BookRecord> getRecordType()
+}
+
+Book --> BookRecord: getRecordType()
+
+class BookRecord extends TableRecord, UpdatableRecord
+
+
+
+@enduml
