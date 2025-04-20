@@ -41,6 +41,7 @@ interface Query extends Statement {
 '  select query
 interface ResultQuery extends Query {
    Result<R> fetch()
+   Result<R> fetchInto(table)
 }
 
 ResultQuery --> Record
@@ -76,6 +77,8 @@ interface Table extends QueryPart {
 ' A record essentially combines a list of columns
 interface Record extends Fields {
    Row valuesRow();
+   T get(field)
+   T into(table)
 }
 
 ' A row value expression.
