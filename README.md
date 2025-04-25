@@ -77,6 +77,36 @@ spring.r2dbc.pool.max-size=4
 目前该该功能已经在Spring Boot 2.6.0中实现，关于Spring Boot
 2.5.x的解决方法请访问 https://github.com/spring-projects/spring-boot/issues/26439
 
+# jOOQ with Java record
+
+```
+  @Test
+  public void testJavaRecord() throws Exception {
+    List<Language> languages =
+      jooq.select(LANGUAGE.ID, LANGUAGE.CD)
+        .from(LANGUAGE)
+        .orderBy(LANGUAGE.ID)
+        .fetch(Records.mapping(Language::new));
+  }
+
+  record Language(int id, String cd) {
+  }
+
+```
+
+# jOOQ with JdbcTemplate
+
+API:
+```
+ jdbc.query(String sql, @Nullable Object[] args, ResultSetExtractor<T> rse)
+```
+
+Example:
+
+```
+    jdbcTemplate.query("select * from language", (ResultSetExtractor<List<LanguageRecord>>) rs -> jooq.fetch(rs).into(LANGUAGE));
+```
+
 # References
 
 * jOOQ: https://www.jooq.org/
