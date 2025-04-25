@@ -8,6 +8,7 @@ import org.mvnsearch.JooqBaseTest;
 import org.mvnsearch.infrastructure.jooq.tables.records.LanguageRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static org.jooq.Records.intoMap;
 import static org.mvnsearch.infrastructure.jooq.Tables.LANGUAGE;
 
 /**
@@ -17,17 +18,27 @@ import static org.mvnsearch.infrastructure.jooq.Tables.LANGUAGE;
  */
 @DataSet({"/database/dataset/languages.xml"})
 public class JooqDslTest extends JooqBaseTest {
-    @Autowired
-    private DSLContext jooq;
+  @Autowired
+  private DSLContext jooq;
 
-    @Test
-    public void testSelect() throws Exception {
-        Result<LanguageRecord> records = jooq.selectFrom(LANGUAGE).fetch();
-        records.forEach(languageRecord -> System.out.println(languageRecord.getId()));
-    }
+  @Test
+  public void testSelect() throws Exception {
+    jooq.select(LANGUAGE.CD, LANGUAGE.DESCRIPTION)
+      .from(LANGUAGE)
+      .where(LANGUAGE.CD.eq("zh"))
+      .collect(intoMap());
+    Result<LanguageRecord> records = jooq.selectFrom(LANGUAGE).fetch();
+    records.forEach(languageRecord -> System.out.println(languageRecord.getCd()));
+  }
 
-    @Test
-    public void testUpdate() throws Exception {
-        jooq.update(LANGUAGE).set(LANGUAGE.DESCRIPTION, "Chinese").where(LANGUAGE.ID.eq(1));
-    }
+  @Test
+  public void testZero() {
+    final Integer i = jooq.selectOne().execute();
+    System.out.println(i);
+  }
+
+  @Test
+  public void testUpdate() throws Exception {
+    jooq.update(LANGUAGE).set(LANGUAGE.DESCRIPTION, "Chinese").where(LANGUAGE.ID.eq(1));
+  }
 }
