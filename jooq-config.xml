@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- uuid: 019971d2-096a-7966-b4dc-463773591b71 -->
+<!-- dotenv.public.key: 03dddfe7c7af6482be4c6ca46942cff8dcd692313e149f1d712d044e8e8d0dd321 -->
 <configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.20.0.xsd">
   <jdbc>
     <driver>com.mysql.cj.jdbc.Driver</driver>
     <url>jdbc:mysql://localhost:13306/jooq</url>
     <user>root</user>
-    <password>123456</password>
+    <password>encrypted:BLEUfC9AR1Qcs2sXv2orxpZAl9Arn32KBdiiT/0OK4s+lRBXi6Lu0Td9tM7tLAbLPjIbWYx0AKBRPcKBhIk7G8xc2u1BlEPnhl6lblyqGN0qYM1g2aLLxF6ir2oqD7WtSuUpcnRYSQ==</password>
   </jdbc>
   <generator>
     <generate>
