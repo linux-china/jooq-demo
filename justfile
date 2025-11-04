@@ -9,3 +9,7 @@ shell:
 
 setup-schema:
     mysql -h 127.0.0.1 -P 13306 -u root -p jooq < ./src/test/resources/database/schema/init.ddl
+
+# generate DTD for database
+db-dtd-generation: database-migrate
+    mvn surefire:test -Dtest=DataBaseTest
