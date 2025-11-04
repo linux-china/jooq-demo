@@ -10,12 +10,13 @@ import javax.sql.DataSource;
 import java.io.FileOutputStream;
 
 public class DataBaseTest extends JooqBaseTest {
-    @Autowired
-    private DataSource dataSource;
+  @Autowired
+  private DataSource dataSource;
 
-    @Test
-    public void generateDTD() throws Exception {
-        IDatabaseConnection connection = new DatabaseConnection(dataSource.getConnection());
-        FlatDtdDataSet.write(connection.createDataSet(), new FileOutputStream("target/database.dtd"));
-    }
+  @Test
+  public void generateDTD() throws Exception {
+    IDatabaseConnection connection = new DatabaseConnection(dataSource.getConnection());
+    FlatDtdDataSet.write(connection.createDataSet(), new FileOutputStream("database.dtd"));
+    FlatDtdDataSet.write(connection.createDataSet(), new FileOutputStream("src/test/resources/database/dataset/database.dtd"));
+  }
 }
